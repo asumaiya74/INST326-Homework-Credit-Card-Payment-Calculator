@@ -3,6 +3,7 @@ For this homework you will write a script to do some useful calculations for cre
 
 > Note: The  resulting  script  is  only  an  example  of  a  remaining  payments  calculator  and  may  not accurately reflect the same calculation methods as your personal credit card. This script should not be used to make financial decisions.
 
+
 # get_min_payment()
 **Parameters**
 - The  total  amount  of  the  balance  in  an  account  that  is  left  to  pay  (called  the  balance;  you  can assume this is a positive number)
@@ -17,6 +18,7 @@ For this homework you will write a script to do some useful calculations for cre
 
 > Note : This  function  takes  into  account  only  balance,  the  minimum  payment  percentage, and  fees.  In  the  real  world,  minimum  credit  card  payments  may  take  more  factors into account.
 
+
 # interest_charged()
 **Parameters**
 - The balance of the credit card (the amount in the account that has not been paid off yet; you can assume this is a positive number)
@@ -28,6 +30,7 @@ For this homework you will write a script to do some useful calculations for cre
     - y is the amount of days in a year
     - b is the balance in the account
     - d  is  the  number  of  days  in  a  billing  cycle  (expressed  as  an  integer;  you  can  safely  assume that this will be 30 each time)
+
 
 # remaining_payments()
 **Parameters**
@@ -63,8 +66,26 @@ Here is an algorithm for simulating payments until the credit card is paid off:
 
     > Note: You can return multiple items at once from a function if you separate each item by a comma.  The  item  returned  will  be  a  tuple  containing  the  items  that  you  returned. Each element in the tuple can be accessed referencing its respective index. 
     
-# main()
 
+# main()
+**Parameters**
+- The  balance  of  the  credit  card  (that  amount  in  the  account  that  has  not  been  paid  off  yet;  you can assume this is a positive number)
+- The annual APR (you can assume this is an integer between 0 and 100; for example, an APR of 5% would be expressed as 5)
+- The  target  payment  (the  amount  the  user  wants  to  pay  per  payment;  you  can  assume  this  is  a positive number; defaults to None)
+- The  credit  line.  The  maximum  amount  of  balance  that  an  account  holder  can  keep  in  their account. (you can assume this is a positive integer; defaults to 5,000)
+- The amount of fees that will be charged in addition to the minimum payment. (you can assumethis is a positive integer; defaults to 0)
+
+**Functionality**
+- Compute the recommended minimum payment using the get_min_payment() function
+- Display the recommended minimum payment to the user
+- Declare  a  variable  named  pays_minimum  to  False.  This  variable  represents  whether  a  user  has chosen to pay the minimum payment each month or not.
+- If  the  user’s  target  payment  is  None,  set  the  pays_minimum  to  True.  Otherwise,  if  the  user’s  target payment  is  less  than  the  minimum  payment,  print  a  message  to  the  user  (e.g.,  "Your  target payment  is  less  than  the  minimum  payment  for  this  credit  card")  and  quit  the  program; otherwise:
+    -  Use remaining_payments() to figure out the total number of payments required (hint: we will assume that the beginning balance is the balance amount that was passed in).
+        -  If  the  user  pays  the  minimum  payment  each  time,  display  the  number  that  represents the number of payments that need to be made to the user (e.g., "If you pay the minimum payments  each  month,  you  will  pay  off  the  balance  in  <  total  payments  >  payments."; replace the angle brackets with the appropriate values)
+        -  If the user does not pay the minimum payments, display the number that represents the number  of  payments  that  need  to  be  made  to  the  user  along  with  what  the  desired payment amount is (e.g., "If you make payments of $< target payment >, you will pay off the  balance  in  <  total  payments  >  payments.";  replace  the  angle  brackets  with  the appropriate values)
+    - Return  a  string  that  is  a  message  that  will  tell  the  user  how  many  payments  they  will  be above 25, 50 and 75 percent thresholds.
+
+   > Note: Your returned string should mimic the structure and content of the output provided in the example output below. 
 
 
 # Running your program
